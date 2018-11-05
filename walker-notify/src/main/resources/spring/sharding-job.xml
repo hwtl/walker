@@ -21,7 +21,7 @@
                    max-sleep-time-milliseconds="${maxSleepTimeMilliseconds}"
                    max-retries="${maxRetries}" />
 
-    <job:dataflow id="fetch_waite_status_job" class="walker.application.notify.job.FetchWaiteStatusJob"
+    <job:dataflow id="fetch_waite_status_job" class="walker.application.notify.job.FetchWaiteStatusProcessor"
                   registry-center-ref="regCenter" cron="${fetch_waite_status_job.cron}"
                   sharding-total-count="${fetch_waite_status_job.shardingTotalCount}"
                   sharding-item-parameters="${fetch_waite_status_job.shardingItemParameters}"
@@ -31,6 +31,27 @@
                   disabled="${fetch_waite_status_job.disabled}" overwrite="${fetch_waite_status_job.overwrite}" />
 
     <job:dataflow id="stream_notify_job" class="walker.application.notify.job.StreamNotifyJob"
+                  registry-center-ref="regCenter" cron="${stream_notify_job.cron}"
+                  sharding-total-count="${stream_notify_job.shardingTotalCount}"
+                  sharding-item-parameters="${stream_notify_job.shardingItemParameters}"
+                  streaming-process="${stream_notify_job.streamingProcess}"
+                  monitor-execution="${stream_notify_job.monitorExecution}" failover="${stream_notify_job.failover}"
+                  max-time-diff-seconds="${stream_notify_job.maxTimeDiffSeconds}"  description="${stream_notify_job.description}"
+                  disabled="${stream_notify_job.disabled}" overwrite="${stream_notify_job.overwrite}" />
+
+    <!-- shared notify job -->
+    <!-- todo extend xsd -->
+    <job:dataflow id="notify_notify_job" class="walker.application.notify.job.ShardedNotifyProcessor"
+                  registry-center-ref="regCenter" cron="${stream_notify_job.cron}"
+                  sharding-total-count="${stream_notify_job.shardingTotalCount}"
+                  sharding-item-parameters="${stream_notify_job.shardingItemParameters}"
+                  streaming-process="${stream_notify_job.streamingProcess}"
+                  monitor-execution="${stream_notify_job.monitorExecution}" failover="${stream_notify_job.failover}"
+                  max-time-diff-seconds="${stream_notify_job.maxTimeDiffSeconds}"  description="${stream_notify_job.description}"
+                  disabled="${stream_notify_job.disabled}" overwrite="${stream_notify_job.overwrite}">
+    </job:dataflow>
+    <!-- shared type notify job -->
+    <job:dataflow id="notify_type_notify_job" class="walker.application.notify.job.ShardedTypeNotifyProcessor"
                   registry-center-ref="regCenter" cron="${stream_notify_job.cron}"
                   sharding-total-count="${stream_notify_job.shardingTotalCount}"
                   sharding-item-parameters="${stream_notify_job.shardingItemParameters}"

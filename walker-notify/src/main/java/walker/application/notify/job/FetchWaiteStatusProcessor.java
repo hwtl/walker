@@ -32,7 +32,7 @@ import walker.common.util.Utility;
  * @since 2018/11/3 0:46
  */
 @Slf4j
-public class FetchWaiteStatusJob implements DataflowJob<WalkerTransaction> {
+public class FetchWaiteStatusProcessor implements DataflowJob<WalkerTransaction> {
 
     @Resource
     private WalkerTransactionMapper walkerTransactionMapper;
@@ -56,7 +56,7 @@ public class FetchWaiteStatusJob implements DataflowJob<WalkerTransaction> {
         try {
             Thread.sleep(NotifyScheduleConst.INTERNAL_SLEEP_MICROSECONDS);
         } catch (InterruptedException e) {
-            log.error("walker.application.notify.job.FetchWaiteStatusJob.fetchData interrupted", e);
+            log.error("walker.application.notify.job.FetchWaiteStatusProcessor.fetchData interrupted", e);
         }
         int executeTxStatus = EXECUTE_TX_STATUS[shardingContext.getShardingItem() % EXECUTE_TX_STATUS.length];
         log.info("------Thread ID: {}, 任务总片数: {}, 当前第{}分片, FETCH TYPE:{}", Thread.currentThread().getId(),
