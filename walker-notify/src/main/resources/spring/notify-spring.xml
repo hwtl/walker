@@ -26,5 +26,4 @@
     <aop:aspectj-autoproxy proxy-target-class="true"/>
 
     <import resource="classpath:/spring/sharding-databases.xml"/>
-    <import resource="classpath:/spring/sharding-job.xml"/>
 </beans>

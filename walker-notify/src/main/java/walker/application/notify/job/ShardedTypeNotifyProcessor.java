@@ -12,29 +12,17 @@ import java.util.List;
 @Data
 public class ShardedTypeNotifyProcessor extends ShardedNotifyProcessor {
 
-    protected Integer shardedNotifyType;
-
     @Override
     public List<WalkerNotify> fetchData(ShardingContext shardingContext) {
-        return super.fetchData(shardingContext);
+       return super.fetchData(shardingContext);
     }
 
     @Override
-    public WalkerNotifyExample buildSelectNotifyExample() {
-        WalkerNotifyExample wrapper = super.buildSelectNotifyExample();
+    public WalkerNotifyExample buildSelectNotifyExample(ShardingContext shardingContext) {
+        WalkerNotifyExample wrapper = super.buildSelectNotifyExample(shardingContext);
         WalkerNotifyExample.Criteria criteria = wrapper.createCriteria();
-        criteria.andNotifyTypeEqualTo(shardedNotifyType);
+        criteria.andNotifyTypeEqualTo(Integer.parseInt(shardingContext.getJobParameter()));
         return wrapper;
     }
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        super.afterPropertiesSet();
-        if (shardedNotifyType == null) {
-            throw new IllegalArgumentException("shardedNotifyType can't be null");
-        }
-        if (shardedNotifyType < 0) {
-            throw new IllegalArgumentException("shardedNotifyType can't less than 0");
-        }
-    }
 }

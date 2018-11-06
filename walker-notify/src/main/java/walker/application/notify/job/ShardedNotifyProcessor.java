@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.client.RestTemplate;
@@ -31,17 +32,15 @@ import static walker.application.notify.CoordinatorConst.NotifyStatus.*;
 
 @Slf4j
 @Data
-public class ShardedNotifyProcessor implements NotifySelector, DataflowJob<WalkerNotify> , InitializingBean {
+public class ShardedNotifyProcessor implements NotifySelector, DataflowJob<WalkerNotify> {
 
     @Resource
-    private WalkerTransactionMapper walkerTransactionMapper;
+    protected WalkerTransactionMapper walkerTransactionMapper;
 
     @Resource
-    private WalkerNotifyMapper walkerNotifyMapper;
+    protected WalkerNotifyMapper walkerNotifyMapper;
 
-    private RestTemplate restTemplate = new RestTemplate();
-
-    protected Integer shardedTableIndex;
+    protected RestTemplate restTemplate = new RestTemplate();
 
     @Override
     public List<WalkerNotify> fetchData(ShardingContext shardingContext) {
@@ -50,7 +49,7 @@ public class ShardedNotifyProcessor implements NotifySelector, DataflowJob<Walke
 
         PageHelper.startPage(1, NotifyScheduleConst.INTERNAL_NOTIFY_FETCH_SIZE);
 
-        return walkerNotifyMapper.selectIndexedTableByExample(shardedTableIndex, buildSelectNotifyExample());
+        return walkerNotifyMapper.selectIndexedTableByExample(Integer.parseInt(shardingContext.getShardingParameter()), buildSelectNotifyExample(shardingContext));
     }
 
     @Override
@@ -149,17 +148,7 @@ public class ShardedNotifyProcessor implements NotifySelector, DataflowJob<Walke
     }
 
     @Override
-    public void afterPropertiesSet() throws Exception {
-        if (shardedTableIndex == null) {
-            throw new IllegalArgumentException("shardedTableIndex can't be null");
-        }
-        if (shardedTableIndex < 0) {
-            throw new IllegalArgumentException("shardedTableIndex can't less than 0");
-        }
-    }
-
-    @Override
-    public WalkerNotifyExample buildSelectNotifyExample() {
+    public WalkerNotifyExample buildSelectNotifyExample(ShardingContext shardingContext) {
         WalkerNotifyExample waiteToNotifyExample = new WalkerNotifyExample();
         WalkerNotifyExample.Criteria criteria = waiteToNotifyExample.createCriteria();
         long createTimeBeginFilter = Utility.unix_timestamp() - CoordinatorConst.PROCESS_RECENT_DAY * CoordinatorConst.SECONDS_OF_DAY;
