@@ -1,6 +1,5 @@
 !must 
 @EnableAsync
 
-还缺少 
-walker-coordinator 通知 walker-client 消息的处理
-walker-coordinator 内部 消息维护, 通知外部业务系统
+todo:
+回查 coordinator 记录表, 确保即使因为第1次 请求协调者 记录丢失,也能保证一致性
