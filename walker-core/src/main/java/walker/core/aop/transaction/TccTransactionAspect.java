@@ -49,10 +49,10 @@ public class TccTransactionAspect implements InitializingBean {
     private MethodTccCompensateEndpointRegistry methodTccCompensateEndpointRegistry;
 
     @Pointcut(value = "@annotation(walker.common.annotation.TccTransaction)")
-    private void tccTransactionPointcut() {
+    private void annotationPoint() {
     }
 
-    @Around(value = "@annotation(tcc)")
+    @Around(value = "annotationPoint() && @annotation(tcc)")
     public Object doAround(TccTransaction tcc, ProceedingJoinPoint pjp) throws Throwable {
         String serviceName = pjp.getTarget().getClass().getName();
         Method method = ((MethodSignature) pjp.getSignature()).getMethod();

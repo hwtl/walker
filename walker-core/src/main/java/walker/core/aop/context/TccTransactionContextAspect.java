@@ -24,11 +24,11 @@ public class TccTransactionContextAspect {
     private WalkerProxy walkerProxy;
 
     @Pointcut(value = "@annotation(walker.common.annotation.TccTransaction)")
-    private void tccTransactionContextPointcut() {
+    private void annotationPoint() {
     }
 
-    @Before("@annotation(tcc)")
-    public void doBefore(TccTransaction tcc, JoinPoint point) {
+    @Before("annotationPoint()")
+    public void doBefore(JoinPoint point) {
         log.info("HI ,point:{}", endpoint(point));
         WalkerContextlManager.incrementDepth();
 
@@ -51,7 +51,7 @@ public class TccTransactionContextAspect {
         return stringBuffer.toString();
     }
 
-    @After("tccTransactionContextPointcut()")
+    @After("annotationPoint()")
     public void doAfter(JoinPoint point) {
         log.info("BYE ,point:{}", endpoint(point));
         if (WalkerContextlManager.isFirstDepth()) {
@@ -62,7 +62,7 @@ public class TccTransactionContextAspect {
         }
     }
 
-    @AfterThrowing(value = "tccTransactionContextPointcut()", throwing = "e")
+    @AfterThrowing(value = "annotationPoint()", throwing = "e")
     public void doAfterThrowing(JoinPoint point, Throwable e) throws Throwable {
         log.info("ERROR ,point:{}", endpoint(point));
         log.error("process abort", e);
