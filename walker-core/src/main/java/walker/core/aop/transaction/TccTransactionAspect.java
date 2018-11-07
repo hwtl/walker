@@ -34,7 +34,7 @@ import java.lang.reflect.Method;
 @Aspect
 @Component
 @Slf4j
-@Order(value = Ordered.HIGHEST_PRECEDENCE)
+@Order(value = 2)
 public class TccTransactionAspect implements InitializingBean {
 
     public static final String LOG_KEY = "TccTransaction#";

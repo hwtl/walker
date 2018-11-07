@@ -16,7 +16,7 @@ import walker.core.client.WalkerProxy;
 
 @Aspect
 @Component
-@Order(value = Ordered.LOWEST_PRECEDENCE + 1)
+@Order(value = 1)
 @Slf4j
 public class TccTransactionContextAspect {
 
