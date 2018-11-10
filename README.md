@@ -9,13 +9,14 @@ walker is a useful library designed to resolve cross transaction of RDBMS in com
   The important thing in life is to have a great aim and the determination to attain it
 ```
 
-|Author|宋大侠|
+|Author|宋|
 |---|---
 |E-mail|1422204321@qq.com
 
 ****
 ## 目录
 * [由来](#由来)
+* [声明](#声明)
 * [模块](#模块)
 * [数据结构](#数据结构)
     - [分支事务](#分支事务)
@@ -34,6 +35,13 @@ walker is a useful library designed to resolve cross transaction of RDBMS in com
 
 
 ### 由来
+[x] 别人做的对环境要求太高,适用性差
+[√] 我不得不站出来做一个更好的
+
+### 声明
+>> walker当前处在开发中阶段，由于只有我1人开发，基本都是下班或者星期天在家开发，所以进度不是很快
+>> 不过，你可以看看已有代码的实现方式，或许对你会有一些提示\帮助
+>> 欢迎提交你的issue，代码只是简单的show my code，思想的共鸣才是更重要的交流
 
 ### 模块
 |模块名称|主要功能|
@@ -59,6 +67,8 @@ walker is a useful library designed to resolve cross transaction of RDBMS in com
         * Java
         
 ### 原理
+> 正统的TCC原理(try commit cancel):
+>> 在spring的事务管理器外层包装一层 walker的封装, 在单一RDBMS数据库事务的基础上 通过逻辑来做分布式事务一致性
 
 ### 代码示例
 ```java
@@ -131,7 +141,20 @@ walker is a useful library designed to resolve cross transaction of RDBMS in com
 
 ```
 ### 接入方法
-
+参考我的写法 或 引入如下的lib
+```java
+<dependency>
+  <groupId>walker</groupId>
+  <artifactId>walker-core</artifactId>
+  <version>x.y.z</version>
+</dependency>
+<dependency>
+  <groupId>walker</groupId>
+  <artifactId>walker-rabbitmq</artifactId>
+  <version>x.y.z</version>
+</dependency>
+ 
+```
 ### 重要核心
 
 ### 性能优化
