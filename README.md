@@ -35,8 +35,8 @@ walker is a useful library designed to resolve cross transaction of RDBMS in com
 
 
 ### 由来
-- [ ] 别人做的对环境要求太高,适用性差
-- [x] 我不得不站出来做一个更好的
+- [ ] 其他人的实现方式 对应用环境要求太高,适用性差
+- [x] 我不得不站出来做一个更好的(拯救世界)
 
 ### 声明
 1. walker当前处在开发中阶段，由于只有我1人开发，基本都是下班或者星期天在家开发，所以进度不是很快 
