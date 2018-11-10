@@ -143,7 +143,7 @@ walker is a useful library designed to resolve cross transaction of RDBMS in com
 ```
 ### 接入方法
 参考我的写法 或 引入如下的lib
-```java
+```xml
 <dependency>
   <groupId>walker</groupId>
   <artifactId>walker-core</artifactId>
