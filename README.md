@@ -39,7 +39,7 @@ walker is a useful library designed to resolve cross transaction of RDBMS in com
 |模块名称|主要功能|
 |---|---
 |walker|项目介绍
-|walker-admin|[项目介绍](walker-admin/README.md)
+|walker-admin|[项目介绍](walker-admin)
 
 ### 数据结构
 * core
