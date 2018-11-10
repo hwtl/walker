@@ -1,5 +1,8 @@
-# walker
-Following following following
+# 看完代码记得提交你的建议或者想法哦~
+
+# #walker
+处理分布式事务的解决方案
+
 
 ![Image text](https://github.com/devpage/walker/blob/master/_doc/alipay_tcc.png)
 
