@@ -15,6 +15,7 @@
         <module>walker-bridge</module>
         <module>walker-notify</module>
         <module>walker-example</module>
+        <module>walker-admin</module>
     </modules>
 
     <parent>
