@@ -39,15 +39,16 @@ walker is a useful library designed to resolve cross transaction of RDBMS in com
 [√] 我不得不站出来做一个更好的
 
 ### 声明
->> walker当前处在开发中阶段，由于只有我1人开发，基本都是下班或者星期天在家开发，所以进度不是很快 <space><space><enter>
->> 不过，你可以看看已有代码的实现方式，或许对你会有一些提示\帮助 <space><space><enter>
->> 欢迎提交你的issue，代码只是简单的show my code，思想的共鸣才是更重要的交流
+1. walker当前处在开发中阶段，由于只有我1人开发，基本都是下班或者星期天在家开发，所以进度不是很快 
+1. 你可以看看已有代码的实现方式，或许对你会有一些提示\帮助 
+1. 欢迎提交你的issue，代码只是简单的show you the code，思想的共鸣才是更重要的交流
 
 ### 模块
 |模块名称|主要功能|
 |---|---
 |walker|项目介绍
 |walker-admin|[项目介绍](walker-admin)
+|其他模块|自行脑补
 
 ### 数据结构
 * core
