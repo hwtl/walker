@@ -1,4 +1,4 @@
-package walker.bridge.interceptor;
+package walker.bridge.feigin;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
