@@ -9,14 +9,17 @@ walker is a useful library designed to resolve cross transaction of RDBMS in com
   The important thing in life is to have a great aim and the determination to attain it
 ```
 
-|Author|宋|
-|---|---
-|E-mail|1422204321@qq.com
+### 感谢各位
+[star member](https://github.com/devpage/walker/stargazers)
+|
+[fork member](https://github.com/devpage/walker/network)
+
 
 ****
 ## 目录
 * [由来](#由来)
 * [声明](#声明)
+* [联系我](#联系我) 
 * [模块](#模块)
 * [数据结构](#数据结构)
     - [分支事务](#分支事务)
@@ -42,6 +45,12 @@ walker is a useful library designed to resolve cross transaction of RDBMS in com
 1. walker当前处在 **开发中** 阶段，由于只有我1人开发，基本都是下班或者星期天在家开发，所以进度不是很快 
 1. 你可以看看已有代码的实现方式，或许对你会有一些提示\帮助 
 1. 欢迎提交你的issue，代码只是简单的show you the code，思想的共鸣才是更重要的交流
+
+### 联系我
+|Author|宋|说明|
+|---|---|---|
+|E-mail|1422204321@qq.com|加好友时 备注: github_walker_你的名字|
+
 
 ### 模块
 |模块名称|主要功能|
