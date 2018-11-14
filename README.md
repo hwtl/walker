@@ -13,7 +13,7 @@ walker is a useful library designed to resolve cross transaction of RDBMS in com
 [star member](https://github.com/devpage/walker/stargazers)
 |
 [fork member](https://github.com/devpage/walker/network/members)
-
+| 提醒一下 如果只关注 但不参与开发的话 watch就足够了,这样你可以看到最新的代码
 
 ****
 ## 目录
