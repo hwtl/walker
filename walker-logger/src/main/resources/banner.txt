@@ -1,0 +1,21 @@
+${AnsiColor.BRIGHT_GREEN}                    _oo0oo_
+${AnsiColor.BRIGHT_GREEN}                   o8888888o
+${AnsiColor.BRIGHT_GREEN}                   88" . "88
+${AnsiColor.BRIGHT_RED}                   (| -_- |)
+${AnsiColor.BRIGHT_RED}                   0\  =  /0
+${AnsiColor.BRIGHT_RED}                 ___/`---'\___
+${AnsiColor.BRIGHT_RED}               .' \\|     |// '.
+${AnsiColor.BRIGHT_RED}              / \\|||  :  |||// \
+${AnsiColor.BRIGHT_RED}             / _||||| -:- |||||- \
+${AnsiColor.BRIGHT_RED}            |   | \\\  -  /// |   |
+${AnsiColor.BRIGHT_RED}            | \_|  ''\---/''  |_/ |
+${AnsiColor.BRIGHT_RED}            \  .-\__  '-'  ___/-. /
+${AnsiColor.BRIGHT_RED}          ___'. .'  /--.--\  `. .'___
+${AnsiColor.BRIGHT_RED}       ."" '<  `.___\_<|>_/___.' >' "".
+${AnsiColor.BRIGHT_RED}      | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+${AnsiColor.BRIGHT_RED}      \  \ `_.   \_ __\ /__ _/   .-` /  /
+${AnsiColor.BRIGHT_RED}  =====`-.____`.___ \_____/___.-`___.-'=====
+${AnsiColor.BRIGHT_RED}                    `=---='
+${AnsiColor.BRIGHT_RED}  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+${AnsiColor.BRIGHT_RED}            佛祖保佑         永无BUG
+${AnsiColor.BRIGHT_RED} MANIFEST.MF文件中的版本号: version:${application.version}   springboot的版本号: Spring-Boot ${spring-boot.version}
