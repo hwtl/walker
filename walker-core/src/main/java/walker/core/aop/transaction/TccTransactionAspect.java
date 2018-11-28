@@ -16,6 +16,7 @@ import walker.common.annotation.TccTransaction;
 import walker.common.compensate.CompensateMode;
 import walker.common.context.WalkerContext;
 import walker.common.context.WalkerContextlManager;
+import walker.common.exception.WalkerJudgeException;
 import walker.core.client.WalkerProxy;
 import walker.core.method.compensate.MethodTccCompensateEndpoint;
 import walker.core.method.compensate.MethodTccCompensateEndpointRegistry;
@@ -37,8 +38,6 @@ import java.lang.reflect.Method;
 @Order(value = 2)
 public class TccTransactionAspect implements InitializingBean {
 
-    public static final String LOG_KEY = "TccTransaction#";
-
     @Autowired(required = false)
     private TccTransactionResultJudge tccTransactionResultJudge;
 
@@ -53,7 +52,7 @@ public class TccTransactionAspect implements InitializingBean {
     }
 
     @Around(value = "annotationPoint() && @annotation(tcc)")
-    public Object doAround(TccTransaction tcc, ProceedingJoinPoint pjp) throws Throwable {
+    public Object doAround(ProceedingJoinPoint pjp, TccTransaction tcc) throws Throwable {
         String serviceName = pjp.getTarget().getClass().getName();
         Method method = ((MethodSignature) pjp.getSignature()).getMethod();
 
@@ -63,7 +62,7 @@ public class TccTransactionAspect implements InitializingBean {
             if (!method.getReturnType().equals(Void.class)) {
                 if (tcc.needJudge()) {
                     if (!tccTransactionResultJudge.ok(result)) {
-                        throw new RuntimeException("bad result");
+                        throw new WalkerJudgeException("walker method result judge error", result);
                     }
                 }
             }
