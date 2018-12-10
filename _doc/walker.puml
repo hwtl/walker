@@ -1,0 +1,21 @@
+@startuml
+WALKER_A -> DB_A: 1.execute local spring transaction
+DB_A -> WALKER_AOP: 2.interceptor after @Transaction commit
+WALKER_AOP -> WALKER_COORDINATOR: 3. registe wapler_A confirm and cancel method
+
+WALKER_B -> DB_B: 4. execute local spring transaction
+DB_B -> WALKER_AOP: 5. interceptor after @Transaction commit
+WALKER_AOP -> WALKER_COORDINATOR: 6. registe wapler_B confirm and cancel method
+
+
+WALKER_AOP -> WALKER_COORDINATOR: 7. [commit ALL confirm]
+
+WALKER_COORDINATOR --> WALKER_A: 8. [do walker_A confirm api]
+WALKER_A --> WALKER_COORDINATOR: 9. [walker_A confirm OK]
+
+
+WALKER_COORDINATOR --> WALKER_B: 10. [do walker_B confirm api]
+WALKER_B --> WALKER_COORDINATOR: 11. [walker_B confirm OK]
+
+WALKER_COORDINATOR -> WALKER_COORDINATOR: 12. mark all branch transaction success
+@enduml
