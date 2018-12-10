@@ -19,7 +19,8 @@ walker is a useful library designed to resolve cross transaction of RDBMS in com
 ## 目录
 * [由来](#由来)
 * [声明](#声明)
-* [联系我](#联系我) 
+* [联系我](#联系我)
+* [时序图](#时序图)
 * [模块](#模块)
 * [数据结构](#数据结构)
     - [分支事务](#分支事务)
@@ -39,8 +40,8 @@ walker is a useful library designed to resolve cross transaction of RDBMS in com
 
 
 ### 由来
-- [ ] 其他人的实现方式 对应用环境要求太高,适用性差
-- [x] 我不得不站出来做一个更好的
+- [ ] 其他人的实现方式 对应用环境要求太高,通用性差 (明白道理之后 自己随意改造即可)
+- [x] 我不得不站出来做一个更好理解的
 
 ### 声明
 1. walker当前处在 **开发中** 阶段，由于只有我1人开发，基本都是下班或者星期天在家开发，所以进度不是很快 
@@ -52,6 +53,8 @@ walker is a useful library designed to resolve cross transaction of RDBMS in com
 |---|---|---|
 |E-mail|1422204321@qq.com|加好友时 备注: github_walker_你的名字|
 
+### 时序图
+ [PlantUML](_doc/walker.puml)
 
 ### 模块
 |模块名称|主要功能|
